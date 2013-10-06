@@ -1,0 +1,51 @@
+######################################################################################
+# This file is centrally managed by Puppet.  Any manual changes will be OVERWRITTEN! #
+######################################################################################
+
+<VirtualHost *:80>
+        ServerName example.com
+        ServerAlias www.example.com
+        DocumentRoot /var/www/vhosts/example.com
+        <Directory /var/www/vhosts/example.com>
+                Options -Indexes FollowSymLinks -MultiViews
+                AllowOverride All
+        </Directory>
+
+        CustomLog /var/log/httpd/example.com-access.log combined
+        ErrorLog /var/log/httpd/example.com-error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+</VirtualHost>
+
+
+
+#<VirtualHost _default_:443>
+#        ServerName example.com
+#        DocumentRoot /var/www/vhosts/example.com
+#        <Directory /var/www/vhosts/example.com>
+#                Options -Indexes FollowSymLinks -MultiViews
+#                AllowOverride All
+#        </Directory>
+#
+#        CustomLog /var/log/httpd/example.com-ssl-access.log combined
+#        ErrorLog /var/log/httpd/example.com-ssl-error.log
+#
+#        # Possible values include: debug, info, notice, warn, error, crit,
+#        # alert, emerg.
+#        LogLevel warn
+#
+#        SSLEngine on
+#        SSLCertificateFile    /etc/pki/tls/certs/localhost.crt
+#        SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+#
+#        <FilesMatch "\.(cgi|shtml|phtml|php)$">
+#                SSLOptions +StdEnvVars
+#        </FilesMatch>
+#
+#        BrowserMatch "MSIE [2-6]" \
+#                nokeepalive ssl-unclean-shutdown \
+#                downgrade-1.0 force-response-1.0
+#        BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+#</VirtualHost>
